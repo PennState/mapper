@@ -1,0 +1,22 @@
+= mapper
+
+The `mapper` project provides a name mapper that's compatible with The
+`Go` language conventions, where either `Pascal Case` or `Camel Case` are
+recommended.  This mapper can perform transalation to and from the
+following formats:
+
+- https://en.wikipedia.org/wiki/Camel_case[Camel case]
+- [Kebab case]
+- https://en.wikipedia.org/wiki/Camel_case[Pascal case]
+- https://en.wikipedia.org/wiki/Snake_case[Snake case]
+
+With this mapper, the parser isn't dependent upon the input format so
+you can pass any of above four styles into the function.
+
+When specifying the output format of the mapper, be aware that both the
+`Snake Case` and `Kebob Case` mappers can be configured to generate
+upper-case or lower-case characters (yielding six output formats).
+
+Also note that one caveat to `Go`'s recommendations is that acrynyms
+should be left capitalized.  This complicates the mapping process a bit
+when mapping back to `Go` compatible names.
