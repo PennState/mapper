@@ -6,8 +6,8 @@ recommended.  This mapper can perform transalation to and from the
 following formats:
 
 - https://en.wikipedia.org/wiki/Camel_case[Camel case]
-- [Kebab case]
-- https://en.wikipedia.org/wiki/Camel_case[Pascal case]
+- https://en.wiktionary.org/wiki/kebab_case[Kebab case]
+- https://en.wiktionary.org/wiki/Pascal_case[Pascal case]
 - https://en.wikipedia.org/wiki/Snake_case[Snake case]
 
 With this mapper, the parser isn't dependent upon the input format so
