@@ -11,24 +11,26 @@ func TestMapper(t *testing.T) {
 	tests := []struct {
 		name string
 		inp  string
+		exp  string
 	}{
-		{"Pascal", "NoSql"},
-		{"Camel", "noSql"},
-		{"Snake", "no_sql"},
-		{"Kebab", "no-sql"},
-		{"Underscores", "__No__SQL__"},
-		{"Dashes", "--No--SQL--"},
-		{"Dashes", "--no--sql--"},
-		{"Acronym", "NoSQL"},
-		{"Illegal", "No$SQL"},
+		{"Pascal", "PascalCase", "pascal_case"},
+		{"Camel", "camelCase", "camel_case"},
+		{"Snake", "snake_case", "snake_case"},
+		{"Kebab", "kebab_case", "kebab_case"},
+		{"Multiple underscores", "__Why__This__", "why_this"},
+		{"Dashes", "--Why--This--", "why_this"},
+		{"Dashes", "--why--this--", "why_this"},
+		{"Prefix acronym", "IRSWantsYou", "irs_wants_you"},
+		{"Infix acronym", "ExternalURLResolver", "external_url_resolver"},
+		{"Postfix acronym", "NoSQL", "no_sql"},
+		{"Mixed up mess", "Not_Pascal_Case", "not_pascal_case"},
+		{"Illegal", "No$SQL", "no_sql"},
 	}
-
-	exp := "no_sql"
 
 	for i := range tests {
 		test := tests[i]
 		t.Run(test.name, func(t *testing.T) {
-			assert.Equal(t, exp, mapper.Mapper(test.inp))
+			assert.Equal(t, test.exp, mapper.Mapper(test.inp))
 		})
 	}
 }
